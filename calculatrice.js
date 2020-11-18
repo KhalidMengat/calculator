@@ -139,12 +139,12 @@ for (let element of calculatrices) {
         buttons.addEventListener("click", function () {
 
 
-        if (element.nb == 'c') 
+        if (element.nb == 'ce') 
         {
             result.textContent = ' ';
             historique.textContent = ' ';
 
-        } else if (element.nb == 'ce') 
+        } else if (element.nb == 'c') 
         {
             result.textContent = ' ';
         }
