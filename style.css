@@ -10,6 +10,13 @@ body {
     grid-template-columns: repeat(4, 100px);
     grid-template-rows: minmax(120px, auto) repeat(6, 100px);
   }
+
+  .aff .actual-result {
+    font-size: 2.5rem;
+    font-size: 50px;
+    color: white;
+    font-family: sans-serif;
+  }
   
   .container > button {
     cursor: default;
@@ -58,14 +65,7 @@ body {
     font-size: 10px;
     height: 8em;
     width: 40%;
-  }
-  .history::-webkit-scrollbar{
-    display: none;
-  }
-  
-  .aff .actual-result {
-    font-size: 2.5rem;
-    font-size: 50px;
-    color: white;
-    font-family: sans-serif;
+    display: flex;
+    flex-flow: column-reverse;
+    
   }

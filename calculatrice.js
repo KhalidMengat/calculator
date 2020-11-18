@@ -104,24 +104,24 @@ function safeEval(str)
     return Function('return ' + str)()
 }
 
-function sin() 
-{
-    return Math.sin(result.textContent)
-}
-
-function cos() 
-{
-    return Math.cos(result.textContent)
-}
-
-function exp() 
+function exposant() 
 {
     return Math.pow(result.textContent, 2)
 }
 
-function pourcent() 
+function pourcentage() 
 {
     return (result.textContent/100)
+}
+
+function sinus() 
+{
+    return Math.sin(result.textContent)
+}
+
+function cosinus() 
+{
+    return Math.cos(result.textContent)
 }
 
 for (let element of calculatrices) {
@@ -158,28 +158,10 @@ for (let element of calculatrices) {
             creation(history);
             result.textContent = ' ';
         } 
-        else if (element.nb == 'sin') 
-        {
-            history = 'sin('+ result.textContent ;
-            let sinus = sin(result.textContent);
-            result.textContent = sinus;
-            history = history + '=' + sinus;
-            creation(history);
-            result.textContent = ' ';
-        } 
-        else if (element.nb == 'cos') 
-        {
-            history = 'cos('+ result.textContent ;
-            let cosinus = cos(result.textContent);
-            result.textContent = cosinus;
-            history = history + '=' + cosinus;
-            creation(history);
-            result.textContent = ' ';
-        } 
         else if (element.nb == 'x²') 
         {
             history =result.textContent +'²' ;
-            let exposant = exp();
+            let exposant = exposant();
             result.textContent = exposant;
             history = history + '=' + exposant;
             creation(history);
@@ -188,12 +170,30 @@ for (let element of calculatrices) {
         else if (element.nb == '%') 
         {
             history =result.textContent +'%' ;
-            let pourcentage = pourcent();
-            result.textContent = pourcentage;
-            history = history + '=' + pourcentage;
+            let pourcent = pourcentage();
+            result.textContent = pourcent;
+            history = history + '=' + pourcent;
             creation(history);
             result.textContent = ' ';
         }
+        else if (element.nb == 'sin') 
+        {
+            history = 'sin('+ result.textContent ;
+            let sin = sinus(result.textContent);
+            result.textContent = sin;
+            history = history + '=' + sin;
+            creation(history);
+            result.textContent = ' ';
+        } 
+        else if (element.nb == 'cos') 
+        {
+            history = 'cos('+ result.textContent ;
+            let cos = cosinus(result.textContent);
+            result.textContent = cos;
+            history = history + '=' + cos;
+            creation(history);
+            result.textContent = ' ';
+        } 
         else {
             result.textContent = result.textContent + element.nb;
         }
