@@ -1,0 +1,55 @@
+body
+{
+    font-family: sans-serif;
+    background: url(../calculator/cal.jpg);
+    background-size: cover ;
+}
+
+.container{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+  }
+.buttons {
+    border-radius: 6px;
+}
+.header {
+    border-top: 1px solid #777;
+    border-radius: 6px 6px 0 0;
+    padding: 10px;
+    flex-direction: column;
+    grid-column: 1/-1;
+    display: flex;
+    word-wrap: break-word;
+    word-break: break-all;
+    background-color: black;
+    margin: 2px;
+    color: white; 
+    font-size: 25px;
+}
+.buttons {
+    cursor: default;
+    text-align: center;
+    padding: 7px 12px;
+    font-size: 25px;
+    text-shadow: 0 -1px 1px #000;
+    color: #FFF;
+    font-weight: bold;
+    border-top: 1px solid #777;
+    background: linear-gradient(#5F5F5F 0%, #404040 100%);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .8);
+    margin-bottom: 3px;
+}
+
+.buttons:hover {
+    background: linear-gradient(#79D144 0%, #50A61F 100%);
+    border-top: 1px solid #9ADD73;
+    text-shadow: 0 -1px 1px #008000;
+}
+
+.buttons:active {
+    box-shadow: none;
+}
