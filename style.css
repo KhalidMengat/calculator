@@ -1,22 +1,37 @@
-body
-{
-    font-family: sans-serif;
-    background: url(../calculator/cal.jpg);
+body {
+    background: url(../cal.jpg);
     background-size: cover ;
-}
-
-.container{
+  }  
+  .container {
     display: grid;
     justify-content: center;
     align-content: center;
     height: 100vh;
     grid-template-columns: repeat(4, 100px);
-    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(6, 100px);
   }
-.buttons {
+  
+  .container > button {
+    cursor: default;
+    text-align: center;
+    padding: 7px 12px;
+    font-size: 25px;
+    text-shadow: 0 -1px 1px #000;
+    color: white;
+    font-weight: bold;
+    border-top: 1px solid #777;
+    background: linear-gradient(#5F5F5F 0%, #404040 100%);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .8);
+    margin-bottom: 3px;
     border-radius: 6px;
-}
-.header {
+  }
+  
+  .container > button:hover {
+    background: linear-gradient(#79D144 0%, #50A61F 100%);
+    border-top: 1px solid #9ADD73;
+    text-shadow: 0 -1px 1px #008000;
+  }  
+  .aff {
     border-top: 1px solid #777;
     border-radius: 6px 6px 0 0;
     padding: 10px;
@@ -27,29 +42,30 @@ body
     word-break: break-all;
     background-color: black;
     margin: 2px;
-    color: white; 
+    color: white;
     font-size: 25px;
-}
-.buttons {
-    cursor: default;
-    text-align: center;
-    padding: 7px 12px;
-    font-size: 25px;
-    text-shadow: 0 -1px 1px #000;
-    color: #FFF;
-    font-weight: bold;
-    border-top: 1px solid #777;
-    background: linear-gradient(#5F5F5F 0%, #404040 100%);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, .8);
-    margin-bottom: 3px;
-}
-
-.buttons:hover {
-    background: linear-gradient(#79D144 0%, #50A61F 100%);
-    border-top: 1px solid #9ADD73;
-    text-shadow: 0 -1px 1px #008000;
-}
-
-.buttons:active {
-    box-shadow: none;
-}
+  }
+  p{
+    font-size: 15px;
+  }
+  .aff .history  {
+    color: white;
+    height: 20px;
+	margin-right: auto;
+    padding-top: 2px;
+    padding-left: 2px;
+    overflow: auto;
+    font-size: 10px;
+    height: 8em;
+    width: 40%;
+  }
+  .history::-webkit-scrollbar{
+    display: none;
+  }
+  
+  .aff .actual-result {
+    font-size: 2.5rem;
+    font-size: 50px;
+    color: white;
+    font-family: sans-serif;
+  }

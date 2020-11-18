@@ -1,4 +1,4 @@
-const calc = [{
+const calculatrices = [{
     nb: 'ce',
 },
 {
@@ -75,64 +75,128 @@ const calc = [{
 document.querySelector('.container').innerHTML = '';
 const mainContainer = document.querySelector('.container');
 
+const resultat = document.createElement('div');
+resultat.className = 'aff';
+mainContainer.appendChild(resultat);
+
+
+const historique = document.createElement('div');
+historique.className = 'history';
+resultat.appendChild(historique);
+
+let history
+
+function creation() 
+{
+    const p = document.createElement('p')
+    p.textContent = history
+    historique.appendChild(p)
+}
+
+
+
 const result = document.createElement('div');
-result.className = 'header';
-mainContainer.appendChild(result);
+result.className = 'actual-result';
+resultat.appendChild(result);
 
-function sin() {
-
-return Math.sin(result.textContent);
-
+function safeEval(str) 
+{
+    return Function('return ' + str)()
 }
 
-function cos() {
-
-return Math.cos(result.textContent);
-
+function sin() 
+{
+    return Math.sin(result.textContent)
 }
 
-
-function safeEval(str) {
-
-return Function('return ' + str)()
-
+function cos() 
+{
+    return Math.cos(result.textContent)
 }
 
-for (let element of calc) {
+function exp() 
+{
+    return Math.pow(result.textContent, 2)
+}
 
-const bouton = document.createElement('button');
+function pourcent() 
+{
+    return (result.textContent/100)
+}
 
-bouton.className = ('buttons');
-bouton.textContent = element.nb;
-mainContainer.appendChild(bouton);
+for (let element of calculatrices) {
 
-bouton.addEventListener(
+    const buttons = document.createElement('button');
 
-    'click',
-    function () {
 
-        if (element.nb == 'c') {
+    if (element.affichage) {
+        buttons.textContent = element.affichage;
+    } else {
+        buttons.textContent = element.nb;
+    }
+        buttons.className = element.class;
+        mainContainer.appendChild(buttons);
+        buttons.addEventListener("click", function () {
 
-            result.textContent = '';
 
-        } else if (element.nb == 'ce') {
+        if (element.nb == 'c') 
+        {
+            result.textContent = ' ';
+            historique.textContent = ' ';
 
-            result.textContent = '';
-
-        } else if (element.nb == '=') {
-
-            let rep = safeEval(result.textContent);
-
-            result.textContent = rep;
-
-        } else {
-
-            result.textContent = result.textContent + element.nb;
-
+        } else if (element.nb == 'ce') 
+        {
+            result.textContent = ' ';
         }
 
-    }
-
-)
+        else if (element.nb == '=') 
+        {
+            history = result.textContent;
+            let calcul = safeEval(result.textContent);
+            result.textContent = calcul;
+            history = history + '=' + calcul;
+            creation(history);
+            result.textContent = ' ';
+        } 
+        else if (element.nb == 'sin') 
+        {
+            history = 'sin('+ result.textContent ;
+            let sinus = sin(result.textContent);
+            result.textContent = sinus;
+            history = history + '=' + sinus;
+            creation(history);
+            result.textContent = ' ';
+        } 
+        else if (element.nb == 'cos') 
+        {
+            history = 'cos('+ result.textContent ;
+            let cosinus = cos(result.textContent);
+            result.textContent = cosinus;
+            history = history + '=' + cosinus;
+            creation(history);
+            result.textContent = ' ';
+        } 
+        else if (element.nb == 'x²') 
+        {
+            history =result.textContent +'²' ;
+            let exposant = exp();
+            result.textContent = exposant;
+            history = history + '=' + exposant;
+            creation(history);
+            result.textContent = ' ';
+        } 
+        else if (element.nb == '%') 
+        {
+            history =result.textContent +'%' ;
+            let pourcentage = pourcent();
+            result.textContent = pourcentage;
+            history = history + '=' + pourcentage;
+            creation(history);
+            result.textContent = ' ';
+        }
+        else {
+            result.textContent = result.textContent + element.nb;
+        }
+    })
 
 }
